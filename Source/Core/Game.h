@@ -1,6 +1,6 @@
 #pragma once
-
 #include "SDL.h"
+#include "SDL_image.h"
 
 class Game {
 
@@ -22,6 +22,8 @@ public:
 private:
 
 	bool bIsRunning{false};
+
+	int32_t Counter{ 0 };
 
 	SDL_Window* Window{nullptr};
 	SDL_Renderer* Renderer{nullptr};
