@@ -79,7 +79,7 @@ void Game::Update(double DeltaTime)
 	DestRect.h = 64;
 	DestRect.w = 64;
 
-	DestRect.x = Counter * DeltaTime;
+	DestRect.x = Counter * 100 * DeltaTime;
 }
 
 void Game::Clean()

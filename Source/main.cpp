@@ -16,7 +16,8 @@ int main(int agrc, char* argv[])
 	const uint32_t TicksInSecond{1000};
 	const uint32_t TargetFPS{60};
 
-	constexpr double TargetDelta{ (double)TicksInSecond / (double)TargetFPS};
+	constexpr double TargetDeltaTicks{ (double)TicksInSecond / (double)TargetFPS};
+	constexpr double TargetDelta{ (double)TargetDeltaTicks / (double)TicksInSecond };
 
 	while (GameInstance.IsRunning())
 	{
@@ -26,11 +27,11 @@ int main(int agrc, char* argv[])
 		LastTicks = SDL_GetTicks();
 		Accumulator += (double)DeltaTicks;
 
-		while (Accumulator > TargetDelta)
+		while (Accumulator > TargetDeltaTicks)
 		{
 			GameInstance.HandleEvents();
 			GameInstance.Update(TargetDelta);
-			Accumulator -= TargetDelta;
+			Accumulator -= TargetDeltaTicks;
 		}
 	
 		GameInstance.Render();
