@@ -11,7 +11,7 @@ public:
 	void Initialize(const char* Title, int XPos, int YPos, int Width, int Height, bool Fullscreen);
 	
 	void HandleEvents();
-	void Update();
+	void Update(double DeltaTime);
 	void Render();
 
 	// Cleanup memory for example
@@ -23,7 +23,7 @@ private:
 
 	bool bIsRunning{false};
 
-	int32_t Counter{ 0 };
+	Uint32 Counter{0};
 
 	SDL_Window* Window{nullptr};
 	SDL_Renderer* Renderer{nullptr};

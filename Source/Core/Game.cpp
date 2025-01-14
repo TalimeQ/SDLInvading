@@ -73,13 +73,13 @@ void Game::HandleEvents()
 	}
 }
 
-void Game::Update()
+void Game::Update(double DeltaTime)
 {
 	Counter++;
 	DestRect.h = 64;
 	DestRect.w = 64;
 
-	DestRect.x = Counter;
+	DestRect.x = Counter * DeltaTime;
 }
 
 void Game::Clean()
