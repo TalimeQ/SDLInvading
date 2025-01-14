@@ -1,9 +1,10 @@
 #include "Game.h"
 #include <iostream>
+#include "../Graphics/TextureManager.h"
+#include "../Gameplay/GameObject.h"
 
-SDL_Texture* PlayerText;
-SDL_Rect SourceRect,DestRect;
-
+GameObject* Player;
+GameObject* Enemy;
 
 Game::Game()
 {
@@ -52,10 +53,8 @@ void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Heig
 	bIsRunning = true;
 
 	//SDL Image test TODO:: Remove
-	SDL_Surface* TempSurface = IMG_Load("Assets/PlayerShip.png");
-	PlayerText = SDL_CreateTextureFromSurface(Renderer, TempSurface);
-	SDL_FreeSurface(TempSurface);
-
+	Player = new GameObject("Assets/PlayerShip.png", Renderer,32,32);
+	Enemy = new GameObject("Assets/EnemyShip.png", Renderer, 128, 128);
 }
 
 void Game::HandleEvents()
@@ -75,11 +74,8 @@ void Game::HandleEvents()
 
 void Game::Update(double DeltaTime)
 {
-	Counter++;
-	DestRect.h = 64;
-	DestRect.w = 64;
-
-	DestRect.x = Counter * 100 * DeltaTime;
+	Player->Update(DeltaTime);
+	Enemy->Update(DeltaTime);
 }
 
 void Game::Clean()
@@ -96,8 +92,8 @@ void Game::Render()
 	// Clear buffer
 	SDL_RenderClear(Renderer);
 	// Now we add stuff to render
-	SDL_RenderCopy(Renderer, PlayerText,NULL,&DestRect);
-
+	Player->Render();
+	Enemy->Render();
 
 	// This will display
 	SDL_RenderPresent(Renderer);

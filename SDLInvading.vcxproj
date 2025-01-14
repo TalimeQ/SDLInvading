@@ -169,13 +169,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Gameplay\GameObject.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Core\Game.cpp" />
     <ClCompile Include="Source\Core\TimeStamp.cpp" />
+    <ClCompile Include="Source\Graphics\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Gameplay\GameObject.h" />
     <ClInclude Include="Source\Core\Game.h" />
     <ClInclude Include="Source\Core\TimeStamp.h" />
+    <ClInclude Include="Source\Graphics\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
