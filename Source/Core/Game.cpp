@@ -2,9 +2,14 @@
 #include <iostream>
 #include "../Graphics/TextureManager.h"
 #include "../Gameplay/GameObject.h"
+#include "../Gameplay/Map.h"
 
 GameObject* Player;
 GameObject* Enemy;
+
+Map* TileMap;
+SDL_Renderer* Game::Renderer{ nullptr };
+
 
 Game::Game()
 {
@@ -53,8 +58,9 @@ void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Heig
 	bIsRunning = true;
 
 	//SDL Image test TODO:: Remove
-	Player = new GameObject("Assets/PlayerShip.png", Renderer,32,32);
-	Enemy = new GameObject("Assets/EnemyShip.png", Renderer, 128, 128);
+	Player = new GameObject("Assets/PlayerShip.png", 32, 32);
+	Enemy = new GameObject("Assets/EnemyShip.png", 128, 128);
+	TileMap = new Map();
 }
 
 void Game::HandleEvents()
@@ -92,6 +98,7 @@ void Game::Render()
 	// Clear buffer
 	SDL_RenderClear(Renderer);
 	// Now we add stuff to render
+	TileMap->DrawMap();
 	Player->Render();
 	Enemy->Render();
 

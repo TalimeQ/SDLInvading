@@ -5,7 +5,7 @@ class GameObject
 {
 
 public:
-	GameObject(const char* TextureSheet, SDL_Renderer* InRenderer, int32_t InitX, int32_t InitY);
+	GameObject(const char* TextureSheet, int32_t InitX, int32_t InitY);
 	~GameObject();
 
 	void Update(double DeltaTime);
@@ -20,6 +20,5 @@ private:
 
 	SDL_Texture* ObjectTexture;
 	SDL_Rect SourceRect, DestinationRect;
-	SDL_Renderer* Renderer;
 };
 

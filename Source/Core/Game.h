@@ -3,7 +3,7 @@
 #include "SDL_image.h"
 
 class Game {
-
+	// Game Methods
 public:
 	Game();
 	~Game();
@@ -19,6 +19,10 @@ public:
 
 	bool IsRunning() { return bIsRunning; }
 
+	// Game Data
+public:
+	static SDL_Renderer* Renderer;
+
 private:
 
 	bool bIsRunning{false};
@@ -26,5 +30,5 @@ private:
 	Uint32 Counter{0};
 
 	SDL_Window* Window{nullptr};
-	SDL_Renderer* Renderer{nullptr};
+
 };
