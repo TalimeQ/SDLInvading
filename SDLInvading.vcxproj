@@ -169,6 +169,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Gameplay\Components\PositionComponent.cpp" />
     <ClCompile Include="Source\Core\ECS.cpp" />
     <ClCompile Include="Source\Gameplay\Map.cpp" />
     <ClCompile Include="Source\Gameplay\GameObject.cpp" />
@@ -178,6 +179,7 @@
     <ClCompile Include="Source\Graphics\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Gameplay\Components\PositionComponent.h" />
     <ClInclude Include="Source\Core\ECS.h" />
     <ClInclude Include="Source\Gameplay\Map.h" />
     <ClInclude Include="Source\Gameplay\GameObject.h" />

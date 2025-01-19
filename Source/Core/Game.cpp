@@ -3,6 +3,8 @@
 #include "../Graphics/TextureManager.h"
 #include "../Gameplay/GameObject.h"
 #include "../Gameplay/Map.h"
+#include "ECS.h"
+#include "../Gameplay/Components/PositionComponent.h"
 
 GameObject* Player;
 GameObject* Enemy;
@@ -10,6 +12,8 @@ GameObject* Enemy;
 Map* TileMap;
 SDL_Renderer* Game::Renderer{ nullptr };
 
+EntityManager Manager;
+auto& NewPlayer(Manager.AddEntity());
 
 Game::Game()
 {
@@ -61,6 +65,8 @@ void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Heig
 	Player = new GameObject("Assets/PlayerShip.png", 32, 32);
 	Enemy = new GameObject("Assets/EnemyShip.png", 128, 128);
 	TileMap = new Map();
+
+	NewPlayer.AddComponent<PositionComponent>();
 }
 
 void Game::HandleEvents()
@@ -80,8 +86,13 @@ void Game::HandleEvents()
 
 void Game::Update(double DeltaTime)
 {
-	Player->Update(DeltaTime);
-	Enemy->Update(DeltaTime);
+	Manager.Update(DeltaTime);
+
+	auto& PosComponent = NewPlayer.GetComponent<PositionComponent>();
+	std::cout << "XPos: " << PosComponent.X() << " YPos: " << PosComponent.Y() << std::endl;
+
+//	Player->Update(DeltaTime);
+//	Enemy->Update(DeltaTime);
 }
 
 void Game::Clean()
@@ -101,6 +112,8 @@ void Game::Render()
 	TileMap->DrawMap();
 	Player->Render();
 	Enemy->Render();
+
+	Manager.Draw();
 
 	// This will display
 	SDL_RenderPresent(Renderer);

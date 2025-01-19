@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -85,6 +86,7 @@ private:
 	ComponentArray ComponentArray;
 	ComponentBitSet ComponentBitSet;
 
+public:
 	template <typename Type> bool HasComponent() const
 	{
 		return ComponentBitSet[GetComponentTypeID<Type>()];
@@ -108,7 +110,8 @@ private:
 		return *CreatedComponent;
 	}
 
-	template<typename T> T& GetComponment() const
+	// Dunno if the guy from a tut is a genius or a madman
+	template<typename T> T& GetComponent() const
 	{
 		auto ptr(ComponentArray[GetComponentTypeID<T>()]);
 		return *static_cast<T*>(ptr);
@@ -143,12 +146,13 @@ public:
 			std::end(Entities));
 	}
 
-	Entity* AddEntity()
+	Entity& AddEntity()
 	{
-		std::unique_ptr<Entity> EntityPtr = std::make_unique<Entity>();
+		Entity* NewEntity = new Entity();
+		std::unique_ptr<Entity> EntityPtr{ NewEntity };
 		Entities.emplace_back(std::move(EntityPtr));
 
-		return EntityPtr.get();
+		return *NewEntity;
 	}
 
 private:
