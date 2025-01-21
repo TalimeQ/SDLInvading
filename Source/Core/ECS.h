@@ -43,7 +43,7 @@ using ComponentArray = std::array<Component*, MaxComponents>;
 class Component
 {
 public:
-	Entity* entity;
+	Entity* OwnerEntity;
 
 	virtual void Init() {};
 	virtual void Update(double DeltaTime) {};
@@ -96,13 +96,13 @@ public:
 	T& AddComponent(TArgs&&... ConstrArgs)
 	{
 		T* CreatedComponent(new T(std::forward<TArgs>(ConstrArgs)...));
-		CreatedComponent->entity = this;
+		CreatedComponent->OwnerEntity = this;
 
 		// Does he need a unique ptr here?
 		std::unique_ptr<Component> UniquePtr{CreatedComponent};
 		ComponentList.emplace_back(std::move(UniquePtr));
 
-		// This has little sense to me
+		// PTR array so probably the memory loss is not that bad
 		ComponentArray[GetComponentTypeID<T>()] = CreatedComponent;
 		ComponentBitSet[GetComponentTypeID<T>()] = true;
 

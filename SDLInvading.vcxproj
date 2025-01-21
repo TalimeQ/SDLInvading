@@ -169,6 +169,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Helpers\ResourceManager.cpp" />
     <ClCompile Include="Source\Gameplay\Components\PositionComponent.cpp" />
     <ClCompile Include="Source\Core\ECS.cpp" />
     <ClCompile Include="Source\Gameplay\Map.cpp" />
@@ -177,8 +178,10 @@
     <ClCompile Include="Source\Core\Game.cpp" />
     <ClCompile Include="Source\Core\TimeStamp.cpp" />
     <ClCompile Include="Source\Graphics\TextureManager.cpp" />
+    <ClCompile Include="Source\Gameplay\Components\SpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Helpers\ResourceManager.h" />
     <ClInclude Include="Source\Gameplay\Components\PositionComponent.h" />
     <ClInclude Include="Source\Core\ECS.h" />
     <ClInclude Include="Source\Gameplay\Map.h" />
@@ -186,6 +189,7 @@
     <ClInclude Include="Source\Core\Game.h" />
     <ClInclude Include="Source\Core\TimeStamp.h" />
     <ClInclude Include="Source\Graphics\TextureManager.h" />
+    <ClInclude Include="Source\Gameplay\Components\SpriteComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

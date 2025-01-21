@@ -1,13 +1,10 @@
 #include "Game.h"
 #include <iostream>
 #include "../Graphics/TextureManager.h"
-#include "../Gameplay/GameObject.h"
 #include "../Gameplay/Map.h"
 #include "ECS.h"
 #include "../Gameplay/Components/PositionComponent.h"
-
-GameObject* Player;
-GameObject* Enemy;
+#include "../Gameplay/Components/SpriteComponent.h"
 
 Map* TileMap;
 SDL_Renderer* Game::Renderer{ nullptr };
@@ -61,12 +58,8 @@ void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Heig
 
 	bIsRunning = true;
 
-	//SDL Image test TODO:: Remove
-	Player = new GameObject("Assets/PlayerShip.png", 32, 32);
-	Enemy = new GameObject("Assets/EnemyShip.png", 128, 128);
-	TileMap = new Map();
-
 	NewPlayer.AddComponent<PositionComponent>();
+	NewPlayer.AddComponent<SpriteComponent>("Assets/PlayerShip.png");
 }
 
 void Game::HandleEvents()
@@ -87,12 +80,6 @@ void Game::HandleEvents()
 void Game::Update(double DeltaTime)
 {
 	Manager.Update(DeltaTime);
-
-	auto& PosComponent = NewPlayer.GetComponent<PositionComponent>();
-	std::cout << "XPos: " << PosComponent.X() << " YPos: " << PosComponent.Y() << std::endl;
-
-//	Player->Update(DeltaTime);
-//	Enemy->Update(DeltaTime);
 }
 
 void Game::Clean()
@@ -109,11 +96,8 @@ void Game::Render()
 	// Clear buffer
 	SDL_RenderClear(Renderer);
 	// Now we add stuff to render
-	TileMap->DrawMap();
-	Player->Render();
-	Enemy->Render();
-
 	Manager.Draw();
+
 
 	// This will display
 	SDL_RenderPresent(Renderer);

@@ -3,15 +3,12 @@
 
 class PositionComponent : public Component
 {
+
 public:
 
-	int32_t X() { return XPos; }
-	int32_t Y() { return YPos; }
-
+	// Component Overrides
 	void Init() override
 	{
-		XPos = 0;
-		YPos = 0;
 	}
 
 	void Update(double DeltaTime) override
@@ -19,6 +16,23 @@ public:
 		YPos++;
 		XPos++;
 	}
+
+	// PositionComponent Methods
+	
+	PositionComponent()
+	{
+		XPos = 0;
+		YPos = 0;
+	}
+
+	PositionComponent(int32_t InXPos, int32_t InYPos)
+	{
+		XPos = InXPos;
+		YPos = InYPos;
+	}
+
+	int32_t X() { return XPos; }
+	int32_t Y() { return YPos; }
 
 	void SetPos(int32_t X, int32_t Y)
 	{
