@@ -1,48 +1,22 @@
 #pragma once
-#include "../../Core/ECS.h"
+#include "../../Core/SimpleECS.h"
 
-class PositionComponent : public Component
+
+struct PositionComponentMovable 
 {
-
-public:
-
-	// Component Overrides
-	void Init() override
-	{
-	}
-
-	void Update(double DeltaTime) override
-	{
-		YPos++;
-		XPos++;
-	}
-
-	// PositionComponent Methods
-	
-	PositionComponent()
-	{
-		XPos = 0;
-		YPos = 0;
-	}
-
-	PositionComponent(int32_t InXPos, int32_t InYPos)
+	PositionComponentMovable() = default;
+	PositionComponentMovable(double InXPos, double InYPos)
 	{
 		XPos = InXPos;
 		YPos = InYPos;
 	}
 
-	int32_t X() { return XPos; }
-	int32_t Y() { return YPos; }
+	int32_t RectPosX{ 0 };
+	int32_t RectPosY{ 0 };
 
-	void SetPos(int32_t X, int32_t Y)
-	{
-		XPos = X;
-		YPos = Y;
-	}
+	double XPos{ 0 };
+	double YPos{ 0 };
 
-private:
-	int32_t XPos = 0;
-	int32_t YPos = 0;
-
+	double RequestedXTranslation{ 0 };
+	double RequestedYTranslation{ 0 };
 };
-

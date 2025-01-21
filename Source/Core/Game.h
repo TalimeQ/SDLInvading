@@ -2,6 +2,8 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
+class InputHandler;
+
 class Game {
 	// Game Methods
 public:
@@ -23,6 +25,7 @@ public:
 public:
 	static SDL_Renderer* Renderer;
 
+	static InputHandler* Input;
 private:
 
 	bool bIsRunning{false};

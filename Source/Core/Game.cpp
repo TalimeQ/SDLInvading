@@ -1,16 +1,14 @@
 #include "Game.h"
 #include <iostream>
 #include "../Graphics/TextureManager.h"
-#include "../Gameplay/Map.h"
-#include "ECS.h"
-#include "../Gameplay/Components/PositionComponent.h"
-#include "../Gameplay/Components/SpriteComponent.h"
+#include "Input/InputHandler.h"
 
-Map* TileMap;
+
+// TODO :: Try to make them smorter
 SDL_Renderer* Game::Renderer{ nullptr };
+InputHandler* Game::Input{ nullptr };
 
-EntityManager Manager;
-auto& NewPlayer(Manager.AddEntity());
+//EntityManager Game::EntityManager;
 
 Game::Game()
 {
@@ -18,7 +16,7 @@ Game::Game()
 }
 
 Game::~Game()
-{
+{	
 	Clean();
 }
 
@@ -56,10 +54,13 @@ void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Heig
 	SDL_SetRenderDrawColor(Renderer, 255, 255, 255, 255);
 	std::cout << "Renderer Created!" << std::endl;
 
+	// Other Initializations
+	Input = new InputHandler();
+
 	bIsRunning = true;
 
-	NewPlayer.AddComponent<PositionComponent>();
-	NewPlayer.AddComponent<SpriteComponent>("Assets/PlayerShip.png");
+	//NewPlayer.AddComponent<PositionComponent>();
+	//NewPlayer.AddComponent<SpriteComponent>("Assets/PlayerShip.png");
 }
 
 void Game::HandleEvents()
@@ -75,11 +76,14 @@ void Game::HandleEvents()
 		default:
 			break;
 	}
+
+	Input->ParseKeyboard(&Event);
+
 }
 
 void Game::Update(double DeltaTime)
 {
-	Manager.Update(DeltaTime);
+	//Manager.Update(DeltaTime);
 }
 
 void Game::Clean()
@@ -87,6 +91,8 @@ void Game::Clean()
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);
 	SDL_Quit();
+
+	delete(Input);
 
 	std::cout << "Game Quit!" << std::endl;
 }
@@ -96,7 +102,7 @@ void Game::Render()
 	// Clear buffer
 	SDL_RenderClear(Renderer);
 	// Now we add stuff to render
-	Manager.Draw();
+	//Manager.Draw();
 
 
 	// This will display

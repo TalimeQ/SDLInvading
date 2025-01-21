@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -138,13 +138,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)$(ProjectName)\Lib\SDL2Image\include;$(SolutionDir)$(ProjectName)\Lib\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Lib\SDL2Image\include;$(SolutionDir)Lib\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)$(ProjectName)\Lib\SDL2\lib\x64;$(SolutionDir)$(ProjectName)\Lib\SDL2Image\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Lib\SDL2\lib\x64;$(SolutionDir)Lib\SDL2Image\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -169,6 +169,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\SimpleECS.cpp" />
+    <ClCompile Include="Source\Core\Input\InputHandler.cpp" />
     <ClCompile Include="Source\Helpers\ResourceManager.cpp" />
     <ClCompile Include="Source\Gameplay\Components\PositionComponent.cpp" />
     <ClCompile Include="Source\Core\ECS.cpp" />
@@ -181,6 +183,8 @@
     <ClCompile Include="Source\Gameplay\Components\SpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\SimpleECS.h" />
+    <ClInclude Include="Source\Core\Input\InputHandler.h" />
     <ClInclude Include="Source\Helpers\ResourceManager.h" />
     <ClInclude Include="Source\Gameplay\Components\PositionComponent.h" />
     <ClInclude Include="Source\Core\ECS.h" />
