@@ -2,11 +2,16 @@
 #include <iostream>
 #include "../Graphics/TextureManager.h"
 #include "Input/InputHandler.h"
+#include "ECS/ECS.h"
+#include "../Gameplay/Components/PositionComponent.h"
 
 
 // TODO :: Try to make them smorter
 SDL_Renderer* Game::Renderer{ nullptr };
 InputHandler* Game::Input{ nullptr };
+
+Scene CurrentScene;
+
 
 //EntityManager Game::EntityManager;
 
@@ -59,8 +64,8 @@ void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Heig
 
 	bIsRunning = true;
 
-	//NewPlayer.AddComponent<PositionComponent>();
-	//NewPlayer.AddComponent<SpriteComponent>("Assets/PlayerShip.png");
+/*	EntityID PlayerEnt = CurrentScene.NewEntity();
+	CurrentScene.Assign<TransformComponent>(PlayerEnt)*/;
 }
 
 void Game::HandleEvents()

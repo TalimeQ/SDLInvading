@@ -1,5 +1,4 @@
 #pragma once
-#include "../../Core/SimpleECS.h"
 #include "SDL.h"
 #include "../../Graphics/TextureManager.h"
 

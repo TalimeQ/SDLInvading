@@ -169,25 +169,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Core\SimpleECS.cpp" />
     <ClCompile Include="Source\Core\Input\InputHandler.cpp" />
     <ClCompile Include="Source\Helpers\ResourceManager.cpp" />
-    <ClCompile Include="Source\Gameplay\Components\PositionComponent.cpp" />
-    <ClCompile Include="Source\Core\ECS.cpp" />
+    <ClCompile Include="Source\Core\ECS\ECS.cpp" />
     <ClCompile Include="Source\Gameplay\Map.cpp" />
     <ClCompile Include="Source\Gameplay\GameObject.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Core\Game.cpp" />
     <ClCompile Include="Source\Core\TimeStamp.cpp" />
     <ClCompile Include="Source\Graphics\TextureManager.cpp" />
-    <ClCompile Include="Source\Gameplay\Components\SpriteComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Core\SimpleECS.h" />
+    <ClInclude Include="Source\Core\ECS\ComponentPool.h" />
     <ClInclude Include="Source\Core\Input\InputHandler.h" />
     <ClInclude Include="Source\Helpers\ResourceManager.h" />
     <ClInclude Include="Source\Gameplay\Components\PositionComponent.h" />
-    <ClInclude Include="Source\Core\ECS.h" />
+    <ClInclude Include="Source\Core\ECS\ECS.h" />
     <ClInclude Include="Source\Gameplay\Map.h" />
     <ClInclude Include="Source\Gameplay\GameObject.h" />
     <ClInclude Include="Source\Core\Game.h" />

@@ -1,11 +1,10 @@
 #pragma once
-#include "../../Core/SimpleECS.h"
+#include <cstdint>
 
-
-struct PositionComponentMovable 
+struct TransformComponent 
 {
-	PositionComponentMovable() = default;
-	PositionComponentMovable(double InXPos, double InYPos)
+	TransformComponent() = default;
+	TransformComponent(double InXPos, double InYPos)
 	{
 		XPos = InXPos;
 		YPos = InYPos;
