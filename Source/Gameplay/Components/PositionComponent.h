@@ -15,7 +15,4 @@ struct TransformComponent
 
 	double XPos{ 0 };
 	double YPos{ 0 };
-
-	double RequestedXTranslation{ 0 };
-	double RequestedYTranslation{ 0 };
 };
