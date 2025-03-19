@@ -1,9 +1,12 @@
+#pragma once
+
 #include "Game.h"
 #include <iostream>
 #include "../Graphics/TextureManager.h"
 #include "Input/InputHandler.h"
 #include "ECS/ECS.h"
 #include "../Gameplay/Components/PositionComponent.h"
+#include "../Gameplay/Components/SpriteComponent.h"
 
 
 // TODO :: Try to make them smorter
@@ -11,9 +14,10 @@ SDL_Renderer* Game::Renderer{ nullptr };
 InputHandler* Game::Input{ nullptr };
 
 Scene CurrentScene;
+// TODO :: Separate for globals maybe?
+uint16_t GlobalComponentCounter;
 
 
-//EntityManager Game::EntityManager;
 
 Game::Game()
 {
@@ -27,6 +31,8 @@ Game::~Game()
 
 void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Height, bool Fullscreen)
 {
+
+	GlobalComponentCounter = 0;
 
 	if (SDL_Init(SDL_INIT_EVERYTHING))
 	{
@@ -59,13 +65,15 @@ void Game::Initialize(const char* Title, int XPos, int YPos, int Width, int Heig
 	SDL_SetRenderDrawColor(Renderer, 255, 255, 255, 255);
 	std::cout << "Renderer Created!" << std::endl;
 
+	bIsRunning = true;
+
 	// Other Initializations
 	Input = new InputHandler();
 
-	bIsRunning = true;
-
-/*	EntityID PlayerEnt = CurrentScene.NewEntity();
-	CurrentScene.Assign<TransformComponent>(PlayerEnt)*/;
+	// Simple Scene init
+	EntityID PlayerEnt = CurrentScene.NewEntity();
+	CurrentScene.Assign<TransformComponent>(PlayerEnt);
+	CurrentScene.Assign<SpriteComponent>(PlayerEnt);
 }
 
 void Game::HandleEvents()

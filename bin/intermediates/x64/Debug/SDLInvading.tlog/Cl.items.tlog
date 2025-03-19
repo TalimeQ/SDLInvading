@@ -1,0 +1,12 @@
+C:\Users\bkuch\Documents\SDLInvading\Source\Core\ECS\SceneView.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\SceneView.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Core\Input\InputHandler.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\InputHandler.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Gameplay\Systems\PlayerMovementSystem.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\PlayerMovementSystem.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Helpers\InvadingStatics.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\InvadingStatics.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Helpers\ResourceManager.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\ResourceManager.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Core\ECS\ECS.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\ECS.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Gameplay\Map.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\Map.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Gameplay\GameObject.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\GameObject.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\main.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\main.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Core\Game.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\Game.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Core\TimeStamp.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\TimeStamp.obj
+C:\Users\bkuch\Documents\SDLInvading\Source\Graphics\TextureManager.cpp;C:\Users\bkuch\Documents\SDLInvading\bin\intermediates\x64\Debug\TextureManager.obj

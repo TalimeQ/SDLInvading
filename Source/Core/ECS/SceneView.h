@@ -10,14 +10,14 @@ struct SceneView
 	{
 		if (sizeof ... (ComponentTypes) == 0)
 		{
-			All = true;
+			bAll = true;
 		}
 		else
 		{
-			uint16_t ComponentIDs = { 0 ,GetComponentTypeID<ComponenTypes>() ...};
-			for (uint16_t i = 1; i < (sizeof.. (ComponentTypes)+ 1 ); i++)
+			uint16_t ComponentIDs[] = {0 ,GetComponentTypeID<ComponentTypes>() ...};
+			for (uint16_t i = 1; i < (sizeof ... (ComponentTypes) + 1 ); i++)
 			{
-				Mask.Set(ComponentIDs[i])
+				Mask.Set(ComponentIDs[i]);
 			}
 		}
 	}
@@ -74,7 +74,7 @@ struct SceneView
 	{
 		uint16_t FirstIndex = 0;
 		while(FirstIndex < ScenePointer->Entities.size() && (Mask != (Mask & ScenePointer->Entities[FirstIndex].Mask) ||
-			!Entity::IsEntityValid(ScenePointer->Entities[FirstIndex].ID))
+			!Entity::IsEntityValid(ScenePointer->Entities[FirstIndex].ID)))
 		{
 			FirstIndex++;
 		}

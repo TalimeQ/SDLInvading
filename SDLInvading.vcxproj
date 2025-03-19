@@ -171,6 +171,8 @@
   <ItemGroup>
     <ClCompile Include="Source\Core\ECS\SceneView.cpp" />
     <ClCompile Include="Source\Core\Input\InputHandler.cpp" />
+    <ClCompile Include="Source\Gameplay\Systems\PlayerMovementSystem.cpp" />
+    <ClCompile Include="Source\Helpers\InvadingStatics.cpp" />
     <ClCompile Include="Source\Helpers\ResourceManager.cpp" />
     <ClCompile Include="Source\Core\ECS\ECS.cpp" />
     <ClCompile Include="Source\Gameplay\Map.cpp" />
@@ -184,6 +186,8 @@
     <ClInclude Include="Source\Core\ECS\ComponentPool.h" />
     <ClInclude Include="Source\Core\ECS\SceneView.h" />
     <ClInclude Include="Source\Core\Input\InputHandler.h" />
+    <ClInclude Include="Source\Gameplay\Systems\PlayerMovementSystem.h" />
+    <ClInclude Include="Source\Helpers\InvadingStatics.h" />
     <ClInclude Include="Source\Helpers\ResourceManager.h" />
     <ClInclude Include="Source\Gameplay\Components\PositionComponent.h" />
     <ClInclude Include="Source\Core\ECS\ECS.h" />

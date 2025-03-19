@@ -1,70 +1,9 @@
+#pragma once
 #include "ECS.h"
 
 
-template<typename T>
-T Scene::Assign(EntityID EntityID)
-{
-	// Checkup if entity is valid
-	EntityIndex Index = Entity::GetEntityIndex(EntityID);
-	if (Entities[Index].ID != EntityID)
-	{
-		return;
-	}
 
-	uint16_t ComponentID = GetComponentTypeID<T>();
 
-	// Check if we already have a pool for this component
-	// If not assign memory for it
-	if (ComponentPools.size() <= ComponentID)
-	{
-		ComponentPools.resize(ComponentID + 1, nullptr);
-	}
-
-	//Then create a new memory pool
-	if (ComponentPools[ComponentID] == nullptr)
-	{
-		ComponentPools[ComponentID] = new ComponentPool(sizeof(T));
-	}
-
-	
-	EntityIndex Index = Entity::GetEntityIndex(EntityID);
-	T AssignedComponent = new (ComponentPools[ComponentID]->Get(Index)) T();
-
-	Entities[Index].Mask.set(ComponentID);
-	return AssignedComponent;
-}
-
-template<typename T>
-T Scene::GetComponentFromEntity(EntityID EntityID)
-{
-	EntityIndex Index = Entity::GetEntityIndex(EntityID);
-	if (Entities[Index].ID != EntityID)
-	{
-		return;
-	}
-
-	uint16_t ComponentID = GetComponentTypeID<T>();
-	if (Entities[ComponentID].Mask.test(ComponentID))
-	{
-		return nullptr;
-	}
-
-	T* RequestedComponent = static_cast<T*>(ComponentPools[ComponentID]->Get(Index));
-	return RequestedComponent;
-}		
-
-template<typename T>
-void Scene::Remove(EntityID EntityID)
-{
-	EntityIndex Index = Entity::GetEntityIndex(EntityID);
-	if (Entities[Index].ID != EntityID)
-	{
-		return;
-	}
-
-	uint16_t ComponentID = GetComponentTypeID<T>();
-	Entities[Index].Mask.reset(ComponentID);
-}
 
 void Scene::DestroyEntity(EntityID InEntityID)
 {

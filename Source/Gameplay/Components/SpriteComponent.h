@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "../../Graphics/TextureManager.h"
+#include "../../Core/ECS/ECS.h"
 
 class SpriteComponent 
 {

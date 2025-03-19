@@ -38,5 +38,8 @@ SDL_Surface* ResourceManager::GetSurface(std::string FilePath)
 	SDL_Surface* CreatedSurface = IMG_Load(FilePath.c_str());
 	Surfaces.emplace(std::make_pair(FilePath, CreatedSurface));
 
+	// Somewhere in other place
+	// SDL_FreeSurface(TempSurface);
+
 	return CreatedSurface;
 }
